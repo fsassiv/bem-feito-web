@@ -1,13 +1,18 @@
 import { withAuth } from "next-auth/middleware";
 import createMiddleware from "next-intl/middleware";
 import { NextRequest } from "next/server";
-import { locales } from "./i18n";
+import { defaultLocale, locales } from "./i18n";
 
-const publicPages = ["/", "/login"];
+const publicPages = [
+  "/",
+  "/auth/sigin",
+  "/auth/sigup",
+  "/auth/recover-password",
+];
 
 const intlMiddleware = createMiddleware({
   locales,
-  defaultLocale: "pt-BR",
+  defaultLocale,
 });
 
 const authMiddleware = withAuth(
@@ -22,7 +27,7 @@ const authMiddleware = withAuth(
       authorized: ({ token }) => token != null,
     },
     pages: {
-      signIn: "/login",
+      signIn: "/auth/sigin",
     },
   }
 );
