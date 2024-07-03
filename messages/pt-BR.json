@@ -12,7 +12,6 @@
     }
   },
   "mainMenu": {
-    "title": "Menu principal",
     "profile": "Perfil",
     "messages": "Mensagens",
     "notifications": "Notificações",

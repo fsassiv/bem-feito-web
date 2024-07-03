@@ -4,63 +4,81 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Bell,
-  LogIn,
-  LogOut,
-  Menu,
-  MessageSquareMore,
-  User,
-} from "lucide-react";
+import { appColors } from "@/lib/utils";
+import { icons, Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
+import { FC, useMemo } from "react";
 
-export const AppDropdownMenu = () => {
+export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
   const tMenu = useTranslations("mainMenu");
 
   const { data } = useSession();
+
+  const MENU_ITEMS = useMemo(
+    () => [
+      {
+        Icon: icons["User"],
+        label: tMenu("profile"),
+        isSeparator: false,
+        callback: () => console.log("Profile"),
+      },
+      {
+        Icon: icons["MessageSquareMore"],
+        label: tMenu("messages"),
+        callback: () => console.log("Messages"),
+      },
+      {
+        Icon: icons["Bell"],
+        label: tMenu("notifications"),
+        callback: () => console.log("Notif"),
+      },
+      { Icon: "", label: "", isSeparator: true },
+      {
+        Icon: icons["LogOut"],
+        label: tMenu("logOut"),
+        isHidden: !Boolean(data),
+        callback: () => console.log("first"),
+      },
+      {
+        Icon: icons["LogIn"],
+        label: tMenu("logIn"),
+        isHidden: Boolean(data),
+        callback: () => console.log("Login"),
+      },
+    ],
+    [data, tMenu]
+  );
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="link"
-          className="max-lg:hidden focus-visible:ring-0 focus-visible:ring-offset-0"
+          variant="ghost"
+          className={`${
+            isMobile ? null : "max-lg:hidden"
+          } focus-visible:ring-0 focus-visible:ring-offset-0`}
         >
-          <Menu color="#00a8a8" />
+          <Menu color={`${isMobile ? "white" : appColors.primary}`} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 mr-4">
-        <DropdownMenuLabel>{tMenu("title")}</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <User className="mr-2 h-4 w-4" />
-          <span>{tMenu("profile")}</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <MessageSquareMore className="mr-2 h-4 w-4" />
-          <span>{tMenu("messages")}</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Bell className="mr-2 h-4 w-4" />
-          <span>{tMenu("notifications")}</span>
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        {data ? (
-          <DropdownMenuItem>
-            <LogOut className="mr-2 h-4 w-4" />
-            <span>{tMenu("logOut")}</span>
-          </DropdownMenuItem>
-        ) : (
-          <DropdownMenuItem>
-            <LogIn className="mr-2 h-4 w-4" />
-            <span>{tMenu("logIn")}</span>
-          </DropdownMenuItem>
-        )}
+        {MENU_ITEMS.map((item, index) => {
+          if (item.isHidden) return null;
+          return item.isSeparator ? (
+            <DropdownMenuSeparator key={index} />
+          ) : (
+            <DropdownMenuItem key={item.label}>
+              <button className="flex" onClick={item.callback}>
+                <item.Icon className="mr-2 h-4 w-4" />
+                <span>{item.label}</span>
+              </button>
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );

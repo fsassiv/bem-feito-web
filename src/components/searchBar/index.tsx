@@ -71,7 +71,7 @@ export function SearchBar() {
           control={form.control}
           name="searchValue"
           render={({ field }) => (
-            <FormItem className="w-full !mt-0 lg:max-w-[400px] xl:max-w-[600px] max-lg:mb-1">
+            <FormItem className="w-full !mt-0 lg:max-w-[400px] xl:max-w-[500px] max-lg:mb-1">
               <Input
                 className="lg:rounded-l-[0px] lg:border-l-0 focus-visible:ring-0 focus-visible:ring-offset-0"
                 onChange={field.onChange}
