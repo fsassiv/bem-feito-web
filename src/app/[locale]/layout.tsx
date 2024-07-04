@@ -1,4 +1,3 @@
-import { AppLayout } from "@/components/layout";
 import { SessionWrapper } from "@/context/sessionProvider";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -29,7 +28,7 @@ export default async function RootLayout({
           className={`${inter.className} flex min-h-screen w-full max-w-full flex-col`}
         >
           <NextIntlClientProvider messages={messages}>
-            <AppLayout>{children}</AppLayout>
+            {children}
           </NextIntlClientProvider>
         </body>
       </html>

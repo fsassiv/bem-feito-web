@@ -27,6 +27,12 @@ export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
         callback: () => console.log("Profile"),
       },
       {
+        Icon: icons["LayoutDashboard"],
+        label: tMenu("dashboard"),
+        isSeparator: false,
+        callback: () => console.log("dashboard"),
+      },
+      {
         Icon: icons["MessageSquareMore"],
         label: tMenu("messages"),
         callback: () => console.log("Messages"),

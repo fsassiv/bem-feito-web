@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-between p-24 flex-1">
-      Home
-    </div>
-  );
+import { redirect } from "next/navigation";
+
+export default function Root() {
+  redirect("/app");
 }
