@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { MBBottomMenu } from "../mbBottomMenu";
+import { MBBottomMenu } from "../../mbBottomMenu";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { SideBar } from "./SideBar";

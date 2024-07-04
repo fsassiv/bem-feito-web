@@ -1,6 +1,11 @@
-import { AppLayout } from "@/components/layout/app";
+import { Metadata } from "next";
 
-export default async function RootLayout({
+export const metadata: Metadata = {
+  title: "Bem feito App",
+  description: "Sign up, Sign in and password recovery",
+};
+
+export default async function AuthRootLayout({
   children,
   params: { locale },
 }: Readonly<{
@@ -10,7 +15,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={`flex min-h-screen w-full max-w-full flex-col`}>
-        <AppLayout>{children}</AppLayout>
+        {children}
       </body>
     </html>
   );

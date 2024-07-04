@@ -1,8 +1,8 @@
 import { appColors } from "@/lib/utils";
 import { BadgeCheck } from "lucide-react";
-import { AppDropdownMenu } from "../appDropdownMenu";
-import { SearchBar } from "../searchBar";
-import { Button } from "../ui/button";
+import { AppDropdownMenu } from "../../appDropdownMenu";
+import { SearchBar } from "../../searchBar";
+import { Button } from "../../ui/button";
 
 export const Header = () => {
   return (

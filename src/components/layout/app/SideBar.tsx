@@ -1,4 +1,4 @@
-import { FilterBar } from "../filterBar";
+import { FilterBar } from "../../filterBar";
 
 export const SideBar = () => {
   return (

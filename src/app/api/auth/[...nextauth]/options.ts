@@ -28,6 +28,6 @@ export const NEXT_AUTH_OPTIONS: NextAuthOptions = {
   ],
   // secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: "/auth/sigin",
+    signIn: "/auth/signin",
   },
 };

@@ -6,8 +6,8 @@ import { defaultLocale, locales } from "./i18n";
 const publicPages = [
   "/",
   "/app",
-  "/auth/sigin",
-  "/auth/sigup",
+  "/auth/signin",
+  "/auth/signup",
   "/auth/recover-password",
 ];
 
@@ -28,7 +28,7 @@ const authMiddleware = withAuth(
       authorized: ({ token }) => token != null,
     },
     pages: {
-      signIn: "/auth/sigin",
+      signIn: "/auth/signin",
     },
   }
 );
