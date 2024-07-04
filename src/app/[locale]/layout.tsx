@@ -1,4 +1,5 @@
-import { SessionWrapper } from "@/context/sessionProvider";
+import { LoadingWrapper } from "@/context/loading";
+import { SessionWrapper } from "@/context/session";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -22,16 +23,18 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <SessionWrapper>
-      <html lang={locale}>
-        <body
-          className={`${inter.className} flex min-h-screen w-full max-w-full flex-col`}
-        >
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </body>
-      </html>
-    </SessionWrapper>
+    <LoadingWrapper>
+      <SessionWrapper>
+        <html lang={locale}>
+          <body
+            className={`${inter.className} flex min-h-screen w-full max-w-full flex-col`}
+          >
+            <NextIntlClientProvider messages={messages}>
+              {children}
+            </NextIntlClientProvider>
+          </body>
+        </html>
+      </SessionWrapper>
+    </LoadingWrapper>
   );
 }
