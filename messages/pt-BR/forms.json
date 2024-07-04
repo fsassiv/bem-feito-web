@@ -10,14 +10,5 @@
       "search": "Buscar",
       "searchingFor": "Buscando por..."
     }
-  },
-  "mainMenu": {
-    "profile": "Perfil",
-    "dashboard": "Dashboard",
-    "messages": "Mensagens",
-    "notifications": "Notificações",
-    "signUp": "Criar conta",
-    "logIn": "Entrar",
-    "logOut": "Sair"
   }
 }

@@ -13,7 +13,7 @@ export const FilterBar = () => {
       collapsible
     >
       <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md bg-gray-50">
+        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
           Estado
         </AccordionTrigger>
         <AccordionContent className="pl-8">
@@ -21,7 +21,7 @@ export const FilterBar = () => {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md bg-gray-50">
+        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
           Estado
         </AccordionTrigger>
         <AccordionContent className="pl-8">
@@ -29,7 +29,7 @@ export const FilterBar = () => {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md bg-gray-50">
+        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
           Estado
         </AccordionTrigger>
         <AccordionContent className="pl-8">
@@ -37,7 +37,7 @@ export const FilterBar = () => {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md bg-gray-50">
+        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
           Estado
         </AccordionTrigger>
         <AccordionContent className="pl-8">
@@ -45,7 +45,7 @@ export const FilterBar = () => {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md bg-gray-50">
+        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
           Estado
         </AccordionTrigger>
         <AccordionContent className="pl-8">
@@ -53,7 +53,7 @@ export const FilterBar = () => {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md bg-gray-50">
+        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
           Estado
         </AccordionTrigger>
         <AccordionContent className="pl-8">
@@ -61,7 +61,7 @@ export const FilterBar = () => {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md bg-gray-50">
+        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
           Estado
         </AccordionTrigger>
         <AccordionContent className="pl-8">
@@ -69,7 +69,7 @@ export const FilterBar = () => {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md bg-gray-50">
+        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
           Estado
         </AccordionTrigger>
         <AccordionContent className="pl-8">
@@ -77,7 +77,7 @@ export const FilterBar = () => {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md bg-gray-50">
+        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
           Estado
         </AccordionTrigger>
         <AccordionContent className="pl-8">

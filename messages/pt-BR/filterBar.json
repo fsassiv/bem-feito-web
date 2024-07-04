@@ -1,0 +1,9 @@
+{
+  "filterBar": {
+    "title": "Filtros",
+    "country": "Pais",
+    "state": "Estado",
+    "city": "Cidade",
+    "price": "Preço"
+  }
+}

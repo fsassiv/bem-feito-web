@@ -14,6 +14,7 @@ const publicPages = [
 const intlMiddleware = createMiddleware({
   locales,
   defaultLocale,
+  localePrefix: "as-needed",
 });
 
 const authMiddleware = withAuth(
@@ -27,6 +28,7 @@ const authMiddleware = withAuth(
     callbacks: {
       authorized: ({ token }) => token != null,
     },
+    secret: process.env.NEXTAUTH_SECRET,
     pages: {
       signIn: "/auth/signin",
     },
