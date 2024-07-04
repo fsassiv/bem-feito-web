@@ -22,41 +22,41 @@ export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
     () => [
       {
         Icon: icons["User"],
-        label: tMenu("profile"),
+        label: "profile",
         isSeparator: false,
         callback: () => console.log("Profile"),
       },
       {
         Icon: icons["LayoutDashboard"],
-        label: tMenu("dashboard"),
+        label: "dashboard",
         isSeparator: false,
         callback: () => console.log("dashboard"),
       },
       {
         Icon: icons["MessageSquareMore"],
-        label: tMenu("messages"),
+        label: "messages",
         callback: () => console.log("Messages"),
       },
       {
         Icon: icons["Bell"],
-        label: tMenu("notifications"),
+        label: "notifications",
         callback: () => console.log("Notif"),
       },
       { Icon: "", label: "", isSeparator: true },
       {
         Icon: icons["LogOut"],
-        label: tMenu("logOut"),
+        label: "logOut",
         isHidden: !Boolean(data),
         callback: () => console.log("first"),
       },
       {
         Icon: icons["LogIn"],
-        label: tMenu("logIn"),
+        label: "logIn",
         isHidden: Boolean(data),
         callback: () => console.log("Login"),
       },
     ],
-    [data, tMenu]
+    [data]
   );
 
   return (
@@ -80,7 +80,7 @@ export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
             <DropdownMenuItem key={item.label}>
               <button className="flex" onClick={item.callback}>
                 <item.Icon className="mr-2 h-4 w-4" />
-                <span>{item.label}</span>
+                <span>{tMenu(item.label)}</span>
               </button>
             </DropdownMenuItem>
           );
