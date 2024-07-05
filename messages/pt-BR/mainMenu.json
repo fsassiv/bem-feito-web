@@ -6,6 +6,7 @@
     "notifications": "Notificações",
     "signUp": "Criar conta",
     "logIn": "Entrar",
-    "logOut": "Sair"
+    "logOut": "Sair",
+    "createAccount": "Criar conta"
   }
 }

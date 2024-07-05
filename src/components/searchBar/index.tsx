@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm, useFormState } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { disableOutlineCss } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { AppFormMessage } from "../form/AppFormMessage";
 import { Input } from "../ui/input";
@@ -29,9 +30,13 @@ export function SearchBar() {
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
+    defaultValues: {
+      categories: "",
+      searchValue: "",
+    },
   });
 
-  const errors = form.formState.errors;
+  const { isValid } = useFormState({ control: form.control });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log(data);
@@ -50,7 +55,9 @@ export function SearchBar() {
             <FormItem className="w-full lg:max-w-[200px] max-lg:mb-1">
               <Select onValueChange={field.onChange} defaultValue="0">
                 <FormControl>
-                  <SelectTrigger className="lg:rounded-r-[0px] bg-primary !text-white lg:border-r-0 focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0">
+                  <SelectTrigger
+                    className={`lg:rounded-r-[0px] bg-primary !text-white lg:border-r-0 ${disableOutlineCss}`}
+                  >
                     <SelectValue />
                   </SelectTrigger>
                 </FormControl>
@@ -82,7 +89,7 @@ export function SearchBar() {
           )}
         />
         <Button
-          disabled={Boolean(Object.keys(errors).length)}
+          disabled={!isValid}
           type="submit"
           className="lg:ml-4 !mt-0 max-lg:w-full"
         >

@@ -9,6 +9,32 @@
       "allCategories": "Todas as categorias",
       "search": "Buscar",
       "searchingFor": "Buscando por..."
+    },
+    "auth": {
+      "logIn": "Entrar",
+      "signUp": "Criar conta",
+      "logOut": "Sair",
+      "account": "Conta",
+      "createAccount": "Criar conta",
+      "saveChanges": "Salvar alterações",
+      "recoverPassword": "Recuperar senha",
+      "name": "Nome",
+      "invalidName": "Nome inválido",
+      "namePlaceholder": "Informe seu nome completo",
+      "email": "Email",
+      "emailPlaceholder": "Digite seu email",
+      "password": "Senha",
+      "passwordPlaceholder": "Digite sua senha",
+      "confirmPassword": "Confirmar senha",
+      "confirmPasswordPlaceholder": "Digite novamente a senha",
+      "goBack": "Voltar",
+      "passwordComplexitySpecialChar": "Senha deve conter ao menos 1 caractére especial",
+      "passwordComplexityLowercase": "Senha deve conter ao menos 1 minúsculo",
+      "passwordComplexityUppercase": "Senha deve conter ao menos 1 maiúsculo",
+      "passwordComplexityNumber": "Senha deve conter ao menos 1 caractére numérico",
+      "passwordNoMatch": "As senhas informadas devem ser idênticas.",
+      "logInWithGoogle": "Logar com Google",
+      "orConectWith": "Ou conectar com..."
     }
   }
 }

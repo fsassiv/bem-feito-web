@@ -1,3 +1,4 @@
+import { AuthLayout } from "@/components/layout/auth";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,10 +14,13 @@ export default async function AuthRootLayout({
   params: { locale: string };
 }>) {
   return (
-    <html lang={locale}>
-      <body className={`flex min-h-screen w-full max-w-full flex-col`}>
-        {children}
-      </body>
-    </html>
+    // <html lang={locale}>
+    // <body
+    //   className={`flex min-h-screen w-full max-w-full flex-col`}
+    //   suppressHydrationWarning
+    // >
+    <AuthLayout>{children}</AuthLayout>
+    // </body>
+    // </html>
   );
 }

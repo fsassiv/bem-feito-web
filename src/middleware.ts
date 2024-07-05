@@ -6,6 +6,7 @@ import { defaultLocale, locales } from "./i18n";
 const publicPages = [
   "/",
   "/app",
+  "/auth",
   "/auth/signin",
   "/auth/signup",
   "/auth/recover-password",

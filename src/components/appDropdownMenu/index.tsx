@@ -9,12 +9,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { appColors } from "@/lib/utils";
 import { icons, Menu } from "lucide-react";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { FC, useMemo } from "react";
 
 export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
   const tMenu = useTranslations("mainMenu");
+  const { push } = useRouter();
 
   const { data } = useSession();
 
@@ -47,16 +49,22 @@ export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
         Icon: icons["LogOut"],
         label: "logOut",
         isHidden: !Boolean(data),
-        callback: () => console.log("first"),
+        callback: () => signOut(),
+      },
+      {
+        Icon: icons["UserPlus"],
+        label: "createAccount",
+        isHidden: Boolean(data),
+        callback: () => push("/auth/signup"),
       },
       {
         Icon: icons["LogIn"],
         label: "logIn",
         isHidden: Boolean(data),
-        callback: () => console.log("Login"),
+        callback: () => push("/auth/signin"),
       },
     ],
-    [data]
+    [data, push]
   );
 
   return (

@@ -9,11 +9,13 @@ export default async function RootLayout({
   params: { locale: string };
 }>) {
   return (
-    <html lang={locale}>
-      <body className={`flex min-h-screen w-full max-w-full flex-col`}>
-        <AppLayout>{children}</AppLayout>
-        <LoadingScreen />
-      </body>
-    </html>
+    // <html lang={locale}>
+    // <body className={`flex min-h-screen w-full max-w-full flex-col`}>
+    <>
+      <AppLayout>{children}</AppLayout>
+      <LoadingScreen />
+    </>
+    // </body>
+    // </html>
   );
 }

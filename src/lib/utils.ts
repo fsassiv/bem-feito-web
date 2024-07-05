@@ -7,6 +7,9 @@ export function cn(...inputs: ClassValue[]) {
 
 export const appColors = { primary: "#00a8a8" };
 
+export const disableOutlineCss =
+  "focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0";
+
 // export const appColors = [
 //   "#00a8e0",
 //   "#004e7a",

@@ -11,7 +11,7 @@ export default getRequestConfig(async ({ locale }) => {
   if (!locales.includes(locale as any)) notFound();
 
   let tempMsg = {};
-
+  // dynamically import json file based on locale
   for (let i = 0; i < sections.length; i++) {
     tempMsg = {
       ...tempMsg,
