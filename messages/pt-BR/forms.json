@@ -3,12 +3,14 @@
     "general": {
       "required": "Campo obrigatório.",
       "minLength": "Mínimo {length} caractére(s).",
-      "requiredMinLength": "Campo obrigatório. Mínimo {length} caractére(s)."
+      "requiredMinLength": "Campo obrigatório. Mínimo {length} caractére(s).",
+      "notFound": "Nenhum resultado encontrado"
     },
     "searchBar": {
       "allCategories": "Todas as categorias",
       "search": "Buscar",
-      "searchingFor": "Buscando por..."
+      "searchingFor": "Buscando por...",
+      "filterCat": "Filtrar categoria"
     },
     "auth": {
       "logIn": "Entrar",
