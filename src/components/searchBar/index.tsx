@@ -11,6 +11,7 @@ import { categories } from "@/lib/dummy-data";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { toast } from "sonner";
 import { Input } from "../ui/input";
 import { SearchComboBox } from "./SearchComboBox";
 import { Category } from "./types";
@@ -19,7 +20,7 @@ export function SearchBar() {
   const tForms = useTranslations("forms");
   const { push } = useRouter();
 
-  const { toastInfo, toastError, toastSuccess, toastWarning } = useAppToast();
+  const { toastWarning } = useAppToast();
 
   const FormSchema = z.object({
     category: z.string().or(z.null()).optional(),
@@ -46,15 +47,13 @@ export function SearchBar() {
     console.log(data);
   }
 
-  toastError({ description: 'errors["searchValue"]?.message ' });
-  toastSuccess({ description: 'errors["searchValue"]?.message ' });
-  toastInfo({ description: 'errors["searchValue"]?.message ' });
-  toastWarning({ description: 'errors["searchValue"]?.message ' });
   useEffect(() => {
     if (errors["searchValue"]?.message) {
-      toastInfo({ description: errors["searchValue"]?.message });
+      toastWarning({ description: errors["searchValue"]?.message });
+      return;
     }
-  }, [toastInfo, errors]);
+    toast.dismiss();
+  }, [toastWarning, errors]);
 
   return (
     <Form {...form}>

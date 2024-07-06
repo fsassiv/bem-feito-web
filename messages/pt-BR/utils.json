@@ -2,9 +2,9 @@
   "utils": {
     "toast": {
       "successTitle": "Sucesso",
-      "infoTitle": "Sucesso",
-      "warningTitle": "Sucesso",
-      "errorTitle": "Sucesso"
+      "infoTitle": "Informação",
+      "warningTitle": "Aviso",
+      "errorTitle": "Error"
     }
   }
 }
