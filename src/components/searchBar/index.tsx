@@ -6,39 +6,23 @@ import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { useAppToast } from "@/hooks/useAppToast";
+import { categories } from "@/lib/dummy-data";
 import { useTranslations } from "next-intl";
-import { AppFormMessage } from "../form/AppFormMessage";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { Input } from "../ui/input";
 import { SearchComboBox } from "./SearchComboBox";
 import { Category } from "./types";
 
-const categories: Category[] = [
-  {
-    value: "backlog",
-    label: "Backlog",
-  },
-  {
-    value: "todo",
-    label: "Todo",
-  },
-  {
-    value: "in progress",
-    label: "In Progress",
-  },
-  {
-    value: "done",
-    label: "Done",
-  },
-  {
-    value: "canceled",
-    label: "Canceled",
-  },
-];
-
 export function SearchBar() {
   const tForms = useTranslations("forms");
+  const { push } = useRouter();
+
+  const { toastInfo, toastError, toastSuccess, toastWarning } = useAppToast();
 
   const FormSchema = z.object({
+    category: z.string().or(z.null()).optional(),
     searchValue: z
       .string({ message: tForms("general.required") })
       .min(4, { message: tForms("general.minLength", { length: 4 }) }),
@@ -48,24 +32,35 @@ export function SearchBar() {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       searchValue: "",
+      category: null,
     },
   });
 
-  const { isValid } = useFormState({ control: form.control });
+  const { isValid, errors } = useFormState({ control: form.control });
 
   const updateSelectedCategory = (data: Category | null) => {
-    console.log(data);
+    form.setValue("category", data?.value);
   };
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log(data);
   }
 
+  toastError({ description: 'errors["searchValue"]?.message ' });
+  toastSuccess({ description: 'errors["searchValue"]?.message ' });
+  toastInfo({ description: 'errors["searchValue"]?.message ' });
+  toastWarning({ description: 'errors["searchValue"]?.message ' });
+  useEffect(() => {
+    if (errors["searchValue"]?.message) {
+      toastInfo({ description: errors["searchValue"]?.message });
+    }
+  }, [toastInfo, errors]);
+
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex w-full flex-col lg:flex-row items-center justify-center relative"
+        className="flex w-full flex-col lg:flex-row items-center lg:items-start relative lg:mr-4"
       >
         <SearchComboBox
           updateSelectedCategory={updateSelectedCategory}
@@ -78,12 +73,13 @@ export function SearchBar() {
             <FormItem className="w-full !mt-0 lg:max-w-[400px] xl:max-w-[500px] max-lg:mb-1">
               <FormControl>
                 <Input
-                  className="lg:rounded-l-[0px] lg:border-l-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className={
+                    "lg:rounded-l-[0px] lg:border-l-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                  }
                   onChange={field.onChange}
                   placeholder={tForms("searchBar.searchingFor")}
                 />
               </FormControl>
-              <AppFormMessage />
             </FormItem>
           )}
         />
@@ -91,6 +87,7 @@ export function SearchBar() {
           disabled={!isValid}
           type="submit"
           className="lg:ml-4 !mt-0 max-lg:w-full"
+          onClick={() => push("/app/home")}
         >
           {tForms("searchBar.search")}
         </Button>

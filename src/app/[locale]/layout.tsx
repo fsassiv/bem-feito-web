@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/sonner";
 import { LoadingWrapper } from "@/context/loading";
 import { SessionWrapper } from "@/context/session";
 import type { Metadata } from "next";
@@ -29,6 +30,12 @@ export default async function RootLayout({
           <body
             className={`${inter.className} flex min-h-screen w-full max-w-full flex-col`}
           >
+            <Toaster
+              position="bottom-center"
+              closeButton
+              visibleToasts={1}
+              toastOptions={{ classNames: { closeButton: "bg-white" } }}
+            />
             <NextIntlClientProvider messages={messages}>
               {children}
             </NextIntlClientProvider>

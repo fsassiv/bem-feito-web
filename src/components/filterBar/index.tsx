@@ -1,89 +1,63 @@
+"use client";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useTranslations } from "next-intl";
+import { Button } from "../ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
+
+const ITEMS = [1, 2, 3, 4, 5];
 
 export const FilterBar = () => {
+  const tFilter = useTranslations("filterBar");
   return (
-    <Accordion
-      className="h-auto max-h-full overflow-y-auto overflow-x-hidden mt-2 pr-2"
-      type="single"
-      collapsible
-    >
-      <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
-          Estado
-        </AccordionTrigger>
-        <AccordionContent className="pl-8">
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
-          Estado
-        </AccordionTrigger>
-        <AccordionContent className="pl-8">
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
-          Estado
-        </AccordionTrigger>
-        <AccordionContent className="pl-8">
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
-          Estado
-        </AccordionTrigger>
-        <AccordionContent className="pl-8">
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
-          Estado
-        </AccordionTrigger>
-        <AccordionContent className="pl-8">
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
-          Estado
-        </AccordionTrigger>
-        <AccordionContent className="pl-8">
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
-          Estado
-        </AccordionTrigger>
-        <AccordionContent className="pl-8">
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
-          Estado
-        </AccordionTrigger>
-        <AccordionContent className="pl-8">
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-1" className="!border-b-0">
-        <AccordionTrigger className="pl-6 !no-underline text-sm rounded-md">
-          Estado
-        </AccordionTrigger>
-        <AccordionContent className="pl-8">
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+    <Card className="max-h-full overflow-auto sticky top-2 bg-primary">
+      <CardHeader>
+        <CardTitle className="text-white">{tFilter("title")}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Accordion
+          className="h-auto max-h-full overflow-y-auto overflow-x-hidden mt-2"
+          type="single"
+          collapsible
+        >
+          {ITEMS.map((item) => (
+            <AccordionItem
+              value={`${item}`}
+              key={item}
+              className="!border-b-0  mb-1"
+            >
+              <AccordionTrigger className="!no-underline w-full border rounded-md px-2 !py-2 mb-1 text-xs bg-white">
+                Estado
+              </AccordionTrigger>
+              <AccordionContent className="border rounded-md p-2 bg-white text-xs">
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </CardContent>
+      <CardFooter className="flex justify-between">
+        <Button variant="ghost" size="sm" className="text-xs text-white">
+          {tFilter("clearFilterBtn")}
+        </Button>
+        <Button
+          variant="default"
+          size="sm"
+          className="text-xs border font-bold"
+        >
+          {tFilter("applyFilterBtn")}
+        </Button>
+      </CardFooter>
+    </Card>
   );
 };

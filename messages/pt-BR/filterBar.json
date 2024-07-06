@@ -4,6 +4,8 @@
     "country": "Pais",
     "state": "Estado",
     "city": "Cidade",
-    "price": "Preço"
+    "price": "Preço",
+    "clearFilterBtn": "Limpar filtros",
+    "applyFilterBtn": "Aplicar filtros"
   }
 }

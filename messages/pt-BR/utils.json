@@ -1,0 +1,10 @@
+{
+  "utils": {
+    "toast": {
+      "successTitle": "Sucesso",
+      "infoTitle": "Sucesso",
+      "warningTitle": "Sucesso",
+      "errorTitle": "Sucesso"
+    }
+  }
+}

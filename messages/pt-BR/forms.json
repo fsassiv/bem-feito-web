@@ -8,6 +8,7 @@
     },
     "searchBar": {
       "allCategories": "Todas as categorias",
+      "selectCategory": "Selecione uma categoria",
       "search": "Buscar",
       "searchingFor": "Buscando por...",
       "filterCat": "Filtrar categoria"

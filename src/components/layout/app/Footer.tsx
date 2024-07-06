@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <footer className="max-lg:hidden w-full bg-primary">
-      <div className="container">
+      <div className="container text-white">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse itaque
         totam laborum exercitationem! Commodi quibusdam provident esse itaque,
         ex laborum cumque! Eveniet nesciunt vel et vero voluptas repellat fuga

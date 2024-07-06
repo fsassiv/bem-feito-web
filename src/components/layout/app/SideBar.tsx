@@ -1,12 +1,20 @@
+"use client";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { FilterBar } from "../../filterBar";
 
 export const SideBar = () => {
+  const pathname = usePathname();
+
+  if (pathname === "/app") return null;
   return (
-    <aside className="w-[20%] h-full max-lg:hidden pl-1 pb-20">
-      <div className="p-3 bg-primary w-full rounded-md">
-        <h5 className="text-white">Filtros</h5>
-      </div>
+    <motion.aside
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ ease: "easeInOut", duration: 0.5 }}
+      className="w-[20%] h-full max-lg:hidden pl-2 pt-2"
+    >
       <FilterBar />
-    </aside>
+    </motion.aside>
   );
 };

@@ -4,7 +4,15 @@ import { notFound } from "next/navigation";
 // Can be imported from a shared config
 export const locales = ["pt-BR", "en-US"];
 export const defaultLocale = "pt-BR";
-const sections = ["errors", "filterBar", "forms", "mainMenu"];
+const sections = [
+  "errors",
+  "filterBar",
+  "forms",
+  "mainMenu",
+  "navBar",
+  "pages",
+  "utils",
+];
 
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid

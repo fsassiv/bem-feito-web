@@ -36,7 +36,7 @@ export const AuthSignInSignUpTabs = ({}) => {
         <SignUpForm />
       </TabsContent>
       <div className="flex flex-col items-center mt-6 lg:mt-6 rounded-md">
-        <p className="lg:text-gray-400 text-sm mb-2 text-white">
+        <p className="text-sm mb-2 max-lg:text-white">
           {tAuth("orConectWith")}
         </p>
         <div className="flex justify-center w-full">

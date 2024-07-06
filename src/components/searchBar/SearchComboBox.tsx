@@ -31,7 +31,7 @@ export const SearchComboBox: FC<SearchComboBoxTypes> = ({
       {selectedCategory ? (
         <>{selectedCategory.label}</>
       ) : (
-        <>{tForm("searchBar.allCategories")}</>
+        <>{tForm("searchBar.selectCategory")}</>
       )}
     </Button>
   );
@@ -70,7 +70,7 @@ export const SearchComboBox: FC<SearchComboBoxTypes> = ({
       setOpen={setOpen}
       selectedCategory={selectedCategory}
       triggerBtn={TriggerButton}
-      mbTitle={tForm("searchBar.allCategories")}
+      mbTitle={tForm("searchBar.selectCategory")}
     >
       <SeartchCategoriesComp />
     </SearchComboBoxMobile>
