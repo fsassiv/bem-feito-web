@@ -3,15 +3,17 @@ import createMiddleware from "next-intl/middleware";
 import { NextRequest } from "next/server";
 import { defaultLocale, locales } from "./i18n";
 
-const publicPages = [
-  "/",
-  "/app",
-  "/app/home",
-  "/auth",
-  "/auth/signin",
-  "/auth/signup",
-  "/auth/recover-password",
-];
+// const publicPages: string[] = [
+//   "/",
+//   "/app",
+//   "/app/home",
+//   "/auth",
+//   "/auth/signin",
+//   "/auth/signup",
+//   "/auth/recover-password",
+// ];
+
+const protectedRoutes = ["/app/profile"];
 
 const intlMiddleware = createMiddleware({
   locales,
@@ -38,19 +40,29 @@ const authMiddleware = withAuth(
 );
 
 export default function middleware(req: NextRequest) {
-  const publicPathnameRegex = RegExp(
-    `^(/(${locales.join("|")}))?(${publicPages
-      .flatMap((p) => (p === "/" ? ["", "/"] : p))
-      .join("|")})/?$`,
-    "i"
-  );
-  const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
+  // const publicPathnameRegex = RegExp(
+  //   `^(/(${locales.join("|")}))?(${publicPages
+  //     .flatMap((p) => (p === "/" ? ["", "/"] : p))
+  //     .join("|")})/?$`,
+  //   "i"
+  // );
 
-  if (isPublicPage) {
+  // const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
+
+  // if (isPublicPage) {
+  //   return intlMiddleware(req);
+  // } else {
+  //   return (authMiddleware as any)(req);
+  // }
+
+  const isProtectedRoute = protectedRoutes.some((prefix) =>
+    req.nextUrl.pathname.startsWith(prefix)
+  );
+
+  if (!isProtectedRoute) {
     return intlMiddleware(req);
-  } else {
-    return (authMiddleware as any)(req);
   }
+  return (authMiddleware as any)(req);
 }
 
 export const config = {

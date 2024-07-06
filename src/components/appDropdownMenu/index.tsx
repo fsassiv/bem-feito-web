@@ -26,7 +26,7 @@ export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
         Icon: icons["User"],
         label: "profile",
         isSeparator: false,
-        callback: () => console.log("Profile"),
+        callback: () => push("/app/profile"),
       },
       {
         Icon: icons["LayoutDashboard"],

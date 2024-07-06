@@ -18,7 +18,7 @@ import { AuthFormsFooter } from "./AuthFormsFooter";
 export const SignInForm = () => {
   const tAuth = useTranslations("forms.auth");
   const tForms = useTranslations("forms");
-  const { replace } = useRouter();
+  const { back } = useRouter();
 
   const FormSchema = z.object({
     email: z.string().email().min(6),
@@ -99,7 +99,7 @@ export const SignInForm = () => {
             />
           </CardContent>
           <AuthFormsFooter
-            onGoBack={() => replace("/app")}
+            onGoBack={() => back()}
             mainBtnLabel={tAuth("logIn")}
             cancelBtnLabel={tAuth("goBack")}
             isDisabledSubmit={!isValid}

@@ -8,19 +8,8 @@ export const metadata: Metadata = {
 
 export default async function AuthRootLayout({
   children,
-  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
 }>) {
-  return (
-    // <html lang={locale}>
-    // <body
-    //   className={`flex min-h-screen w-full max-w-full flex-col`}
-    //   suppressHydrationWarning
-    // >
-    <AuthLayout>{children}</AuthLayout>
-    // </body>
-    // </html>
-  );
+  return <AuthLayout>{children}</AuthLayout>;
 }

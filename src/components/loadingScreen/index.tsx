@@ -1,18 +1,25 @@
 "use client";
 import { useLoadingContext } from "@/context/loading";
+// import { LoaderCircle } from "lucide-react";
 
 export const LoadingScreen = () => {
   const { isLoading } = useLoadingContext();
 
   if (isLoading)
     return (
-      <div className="fixed top-0 right-0 bottom-0 left-0 flex items-center justify-center ">
+      <div className="fixed inset-0 flex items-center justify-center">
         <div
-          className="absolute top-0 right-0 bottom-0 left-0 bg-white pointer-events-none"
+          className="absolute inset-0 bg-white pointer-events-none"
           style={{ opacity: 0.5 }}
         ></div>
-        <div className="z-50 flex items-end animate-pulse">
-          <p className="text-primary ml-2 text-[20px]">Loading...</p>
+        <div className="z-50 flex items-center animate-bounce">
+          {/* <LoaderCircle
+            color="#00a8a8"
+            className="animate-spin h-[40px] w-auto"
+          /> */}
+          <p className="text-primary ml-2 text-[30px] animate-pulse">
+            Loading...
+          </p>
         </div>
       </div>
     );

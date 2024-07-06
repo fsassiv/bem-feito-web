@@ -18,7 +18,7 @@ import { AuthFormsFooter } from "./AuthFormsFooter";
 export const SignUpForm = () => {
   const tAuth = useTranslations("forms.auth");
   const tForms = useTranslations("forms");
-  const { replace } = useRouter();
+  const { back } = useRouter();
 
   const FormSchema = z
     .object({
@@ -158,7 +158,7 @@ export const SignUpForm = () => {
             />
           </CardContent>
           <AuthFormsFooter
-            onGoBack={() => replace("/app")}
+            onGoBack={() => back()}
             mainBtnLabel={tAuth("createAccount")}
             cancelBtnLabel={tAuth("goBack")}
             isDisabledSubmit={!isValid}

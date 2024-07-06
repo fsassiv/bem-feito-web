@@ -44,7 +44,8 @@ export function SearchBar() {
   };
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
+    const { category, searchValue } = data;
+    push(`/app/home?category=${category || "all"}&search=${searchValue}`);
   }
 
   useEffect(() => {
@@ -86,7 +87,6 @@ export function SearchBar() {
           disabled={!isValid}
           type="submit"
           className="lg:ml-4 !mt-0 max-lg:w-full"
-          onClick={() => push("/app/home")}
         >
           {tForms("searchBar.search")}
         </Button>

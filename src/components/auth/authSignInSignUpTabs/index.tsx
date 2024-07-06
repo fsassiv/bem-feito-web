@@ -45,7 +45,7 @@ export const AuthSignInSignUpTabs = ({}) => {
             title={tAuth("logInWithGoogle")}
             className="bg-white"
           >
-            <Image src={GoogleLogo} alt="Google log" width={30} height={30} />
+            <Image src={GoogleLogo} alt="Google logo" width={30} height={30} />
           </Button>
         </div>
       </div>
