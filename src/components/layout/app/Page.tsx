@@ -7,10 +7,10 @@ export const AppPage = ({ children }: { children: ReactNode }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ ease: "easeInOut", duration: 0.25 }}
+      transition={{ ease: "easeInOut", duration: 0.05 }}
       className="flex flex-col items-center justify-between p-6 flex-1 container h-full"
     >
-      <div>{children}</div>
+      {children}
     </motion.div>
   );
 };

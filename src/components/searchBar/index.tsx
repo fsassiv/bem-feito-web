@@ -7,20 +7,26 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { useAppToast } from "@/hooks/useAppToast";
-import { categories } from "@/lib/dummy-data";
+import { CategoryTypes } from "@/lib/types";
+import { makeServer } from "@/mockServer";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import { FetchCategories } from "../SWRConfigProvider";
 import { Input } from "../ui/input";
 import { SearchComboBox } from "./SearchComboBox";
-import { Category } from "./types";
+
+makeServer({ environment: process.env.NODE_ENV });
 
 export function SearchBar() {
   const tForms = useTranslations("forms");
+
   const { push } = useRouter();
 
   const { toastWarning } = useAppToast();
+
+  const { data: categories } = FetchCategories();
 
   const FormSchema = z.object({
     category: z.string().or(z.null()).optional(),
@@ -39,7 +45,7 @@ export function SearchBar() {
 
   const { isValid, errors } = useFormState({ control: form.control });
 
-  const updateSelectedCategory = (data: Category | null) => {
+  const updateSelectedCategory = (data: CategoryTypes | null) => {
     form.setValue("category", data?.value);
   };
 

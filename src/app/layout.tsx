@@ -1,4 +1,5 @@
 import { LoadingScreen } from "@/components/loadingScreen";
+import { SWRConfigProvider } from "@/components/SWRConfigProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { LoadingWrapper } from "@/context/loading";
 import { SessionWrapper } from "@/context/session";
@@ -39,7 +40,9 @@ export default async function RootLayout({
               toastOptions={{ classNames: { closeButton: "bg-white" } }}
             />
             <NextIntlClientProvider messages={messages}>
-              <Suspense fallback={<LoadingScreen />}>{children}</Suspense>
+              <Suspense fallback={<LoadingScreen />}>
+                <SWRConfigProvider>{children}</SWRConfigProvider>
+              </Suspense>
             </NextIntlClientProvider>
           </body>
         </html>

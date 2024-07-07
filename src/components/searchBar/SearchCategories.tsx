@@ -33,7 +33,7 @@ export const SearchCategories: FC<SearchCategoriesTypes> = ({
           >
             {allCategoriesText}
           </CommandItem>
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <CommandItem
               key={category.value}
               value={category.value}

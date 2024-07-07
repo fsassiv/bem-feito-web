@@ -3,12 +3,14 @@
 import { FC, useEffect, useState } from "react";
 
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { CategoryTypes } from "@/lib/types";
+import { disableOutlineCss } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { Button } from "../ui/button";
 import { SearchCategories } from "./SearchCategories";
 import { SearchComboBoxDesktop } from "./SearchComboBoxDesktop";
 import { SearchComboBoxMobile } from "./SearchComboBoxMobile";
-import { Category, SearchComboBoxTypes } from "./types";
+import { SearchComboBoxTypes } from "./types";
 
 export const SearchComboBox: FC<SearchComboBoxTypes> = ({
   updateSelectedCategory,
@@ -19,14 +21,13 @@ export const SearchComboBox: FC<SearchComboBoxTypes> = ({
   const tForm = useTranslations("forms");
 
   const [open, setOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
-    null
-  );
+  const [selectedCategory, setSelectedCategory] =
+    useState<CategoryTypes | null>(null);
 
   const TriggerButton = (
     <Button
       variant="default"
-      className="w-full lg:w-[200px]  max-lg:mb-1 justify-start lg:rounded-r-none"
+      className={`w-full lg:w-[200px]  max-lg:mb-1 justify-start lg:rounded-r-none ${disableOutlineCss}`}
     >
       {selectedCategory ? (
         <>{selectedCategory.label}</>
