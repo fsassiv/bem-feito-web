@@ -11,6 +11,9 @@
     "check": "prettier --check  \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}\"",
     "prepare": "husky"
   },
+  "lint-staged": {
+    "*.{js|jsx|ts|tsx}": "eslint --cache --fix"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.7.0",
     "@radix-ui/react-accordion": "^1.2.0",
