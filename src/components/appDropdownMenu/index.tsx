@@ -64,7 +64,7 @@ export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
         callback: () => push("/auth/signin"),
       },
     ],
-    [data, push],
+    [data, push]
   );
 
   return (
@@ -86,7 +86,7 @@ export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
             <DropdownMenuSeparator key={index} />
           ) : (
             <DropdownMenuItem key={item.label}>
-              <button className="flex" onClick={item.callback}>
+              <button className="flex w-full" onClick={item.callback}>
                 <item.Icon className="mr-2 h-4 w-4" />
                 <span>{tMenu(item.label)}</span>
               </button>

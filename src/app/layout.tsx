@@ -1,4 +1,3 @@
-import { LoadingScreen } from "@/components/loadingScreen";
 import { SWRConfigProvider } from "@/components/SWRConfigProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { LoadingWrapper } from "@/context/loading";
@@ -7,7 +6,6 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Inter } from "next/font/google";
-import { Suspense } from "react";
 import "./global.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -40,9 +38,7 @@ export default async function RootLayout({
               toastOptions={{ classNames: { closeButton: "bg-white" } }}
             />
             <NextIntlClientProvider messages={messages}>
-              <Suspense fallback={<LoadingScreen />}>
-                <SWRConfigProvider>{children}</SWRConfigProvider>
-              </Suspense>
+              <SWRConfigProvider>{children}</SWRConfigProvider>
             </NextIntlClientProvider>
           </body>
         </html>
