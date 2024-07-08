@@ -12,7 +12,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js|jsx|ts|tsx}": "eslint --cache --fix"
+    "*.js|jsx|ts|tsx": "eslint --cache --fix"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.7.0",
