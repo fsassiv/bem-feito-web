@@ -6,8 +6,8 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { SearchCategoriesTypes } from "@/types/searchBarTypes";
 import { FC } from "react";
-import { SearchCategoriesTypes } from "./types";
 
 export const SearchCategories: FC<SearchCategoriesTypes> = ({
   setOpen,
@@ -40,7 +40,7 @@ export const SearchCategories: FC<SearchCategoriesTypes> = ({
               onSelect={(value) => {
                 setSelectedCategory(
                   categories.find((priority) => priority.value === value) ||
-                    null,
+                    null
                 );
                 setOpen(false);
               }}

@@ -5,8 +5,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { SearchComboWrapperTypes } from "@/types/searchBarTypes";
 import { FC } from "react";
-import { SearchComboWrapperTypes } from "./types";
 
 export const SearchComboBoxDesktop: FC<SearchComboWrapperTypes> = ({
   triggerBtn,

@@ -1,4 +1,4 @@
-import { CategoryTypes } from "@/lib/types";
+import { CategoryTypes } from "@/types/miscellaneous";
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type SearchComboWrapperTypes = {

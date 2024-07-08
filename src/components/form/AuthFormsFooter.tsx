@@ -1,13 +1,7 @@
+import { AuthFormsFooterTypes } from "@/types/AuthFormsFooterTypes";
 import { FC } from "react";
 import { Button } from "../ui/button";
 import { CardFooter } from "../ui/card";
-
-type AuthFormsFooterTypes = {
-  onGoBack: () => void;
-  mainBtnLabel: string;
-  cancelBtnLabel: string;
-  isDisabledSubmit?: boolean;
-};
 
 export const AuthFormsFooter: FC<AuthFormsFooterTypes> = ({
   onGoBack,

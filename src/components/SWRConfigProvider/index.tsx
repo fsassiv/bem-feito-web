@@ -1,5 +1,5 @@
 "use client";
-import { CategoryTypes } from "@/lib/types";
+import { CategoryTypes } from "@/types/miscellaneous";
 import axios from "axios";
 import { ReactNode } from "react";
 import useSWR, { SWRConfig } from "swr";

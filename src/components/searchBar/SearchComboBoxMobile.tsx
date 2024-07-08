@@ -1,4 +1,5 @@
 "use client";
+import { SearchComboWrapperTypes } from "@/types/searchBarTypes";
 import { FC } from "react";
 import {
   Drawer,
@@ -7,7 +8,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "../ui/drawer";
-import { SearchComboWrapperTypes } from "./types";
 
 export const SearchComboBoxMobile: FC<SearchComboWrapperTypes> = ({
   open,

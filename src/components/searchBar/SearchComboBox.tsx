@@ -3,14 +3,14 @@
 import { FC, useEffect, useState } from "react";
 
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { CategoryTypes } from "@/lib/types";
 import { disableOutlineCss } from "@/lib/utils";
+import { CategoryTypes } from "@/types/miscellaneous";
+import { SearchComboBoxTypes } from "@/types/searchBarTypes";
 import { useTranslations } from "next-intl";
 import { Button } from "../ui/button";
 import { SearchCategories } from "./SearchCategories";
 import { SearchComboBoxDesktop } from "./SearchComboBoxDesktop";
 import { SearchComboBoxMobile } from "./SearchComboBoxMobile";
-import { SearchComboBoxTypes } from "./types";
 
 export const SearchComboBox: FC<SearchComboBoxTypes> = ({
   updateSelectedCategory,
