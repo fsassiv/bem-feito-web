@@ -64,7 +64,7 @@ export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
         callback: () => push("/auth/signin"),
       },
     ],
-    [data, push]
+    [data, push],
   );
 
   return (

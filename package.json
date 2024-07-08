@@ -7,12 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write",
-    "check": "prettier --check",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}\"",
+    "check": "prettier --check  \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}\"",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.js|jsx|ts|tsx": "eslint --cache --fix"
+    "*.js|jsx|ts|tsx": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "@hookform/resolvers": "^3.7.0",
