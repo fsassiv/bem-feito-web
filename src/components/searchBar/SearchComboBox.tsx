@@ -52,6 +52,10 @@ export const SearchComboBox: FC<SearchComboBoxTypes> = ({
     updateSelectedCategory(selectedCategory);
   }, [selectedCategory, updateSelectedCategory]);
 
+  useEffect(() => {
+    updateSelectedCategory(selectedCategory);
+  }, [selectedCategory]);
+
   if (isDesktop) {
     return (
       <SearchComboBoxDesktop
