@@ -10,6 +10,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "../ui/button";
 import { SearchCategories } from "./SearchCategories";
 import { SearchComboBoxDesktop } from "./SearchComboBoxDesktop";
+
 import { SearchComboBoxMobile } from "./SearchComboBoxMobile";
 
 export const SearchComboBox: FC<SearchComboBoxTypes> = ({
