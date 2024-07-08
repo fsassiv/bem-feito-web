@@ -5,7 +5,7 @@ const Header = dynamic(() => import("./Header").then((mod) => mod.Header));
 const SideBar = dynamic(() => import("./SideBar").then((mod) => mod.SideBar));
 const Footer = dynamic(() => import("./Footer").then((mod) => mod.Footer));
 const MobileNavBar = dynamic(() =>
-  import("@/components/navBar/mobileNavBar").then((mod) => mod.MobileNavBar)
+  import("@/components/navBar/mobileNavBar").then((mod) => mod.MobileNavBar),
 );
 
 export const AppLayout = ({ children }: { children: ReactNode }) => {

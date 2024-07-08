@@ -9,10 +9,10 @@ import { useTranslations } from "use-intl";
 import GoogleLogo from "../../../../public/images/google.png";
 
 const SignInForm = dynamic(
-  import("@/components/form/SignInForm").then((mod) => mod.SignInForm)
+  import("@/components/form/SignInForm").then((mod) => mod.SignInForm),
 );
 const SignUpForm = dynamic(
-  import("@/components/form/SignUpForm").then((mod) => mod.SignUpForm)
+  import("@/components/form/SignUpForm").then((mod) => mod.SignUpForm),
 );
 
 export const AuthSignInSignUpTabs = ({}) => {

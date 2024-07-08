@@ -36,7 +36,7 @@ const authMiddleware = withAuth(
     pages: {
       signIn: "/auth/signin",
     },
-  }
+  },
 );
 
 export default function middleware(req: NextRequest) {
@@ -56,7 +56,7 @@ export default function middleware(req: NextRequest) {
   // }
 
   const isProtectedRoute = protectedRoutes.some((prefix) =>
-    req.nextUrl.pathname.startsWith(prefix)
+    req.nextUrl.pathname.startsWith(prefix),
   );
 
   if (!isProtectedRoute) {
