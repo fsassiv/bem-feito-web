@@ -1,6 +1,6 @@
-import { Category } from "@/components/searchBar/types";
+import { CategoryTypes } from "./types";
 
-export const categories: Category[] = [
+export const categories: CategoryTypes[] = [
   {
     value: "backlog",
     label: "Backlog",
@@ -22,3 +22,5 @@ export const categories: Category[] = [
     label: "Canceled",
   },
 ];
+
+export const searchBarfilters: string[] = ["1", "2", "3", "4", "5"];

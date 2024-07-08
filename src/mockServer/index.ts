@@ -1,4 +1,4 @@
-import { categories } from "@/lib/dummy-data";
+import { categories, searchBarfilters } from "@/lib/dummy-data";
 import { createServer } from "miragejs";
 
 export function makeServer({ environment = "test" } = {}) {
@@ -13,6 +13,10 @@ export function makeServer({ environment = "test" } = {}) {
 
       this.get("/categories", () => {
         return categories;
+      });
+
+      this.get("/searchfilters", () => {
+        return searchBarfilters;
       });
     },
   });

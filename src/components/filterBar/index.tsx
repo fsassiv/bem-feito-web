@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useTranslations } from "next-intl";
+import { FetchSearchFilters } from "../SWRConfigProvider";
 import { Button } from "../ui/button";
 import {
   Card,
@@ -15,10 +16,11 @@ import {
   CardTitle,
 } from "../ui/card";
 
-const ITEMS = [1, 2, 3, 4, 5];
-
 export const FilterBar = () => {
   const tFilter = useTranslations("filterBar");
+
+  const { data: searchBarfilters } = FetchSearchFilters();
+
   return (
     <Card className="max-h-full overflow-auto sticky top-2 bg-primary">
       <CardHeader>
@@ -30,7 +32,7 @@ export const FilterBar = () => {
           type="single"
           collapsible
         >
-          {ITEMS.map((item) => (
+          {searchBarfilters?.map((item) => (
             <AccordionItem
               value={`${item}`}
               key={item}

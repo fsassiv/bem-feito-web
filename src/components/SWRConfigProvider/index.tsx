@@ -23,6 +23,10 @@ export const SWRConfigProvider = ({ children }: { children: ReactNode }) => {
 export const FetchCategories = () =>
   useSWR<CategoryTypes[]>(fetcherUrls.categories);
 
+export const FetchSearchFilters = () =>
+  useSWR<string[]>(fetcherUrls.searchBarFilters);
+
 export enum fetcherUrls {
   categories = "/api/categories",
+  searchBarFilters = "/api/searchfilters",
 }
