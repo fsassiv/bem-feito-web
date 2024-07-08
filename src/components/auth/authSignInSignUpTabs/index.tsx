@@ -1,13 +1,19 @@
 "use client";
-import { SignInForm } from "@/components/form/SignInForm";
-import { SignUpForm } from "@/components/form/SignUpForm";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { useTranslations } from "use-intl";
 import GoogleLogo from "../../../../public/images/google.png";
+
+const SignInForm = dynamic(
+  import("@/components/form/SignInForm").then((mod) => mod.SignInForm)
+);
+const SignUpForm = dynamic(
+  import("@/components/form/SignUpForm").then((mod) => mod.SignUpForm)
+);
 
 export const AuthSignInSignUpTabs = ({}) => {
   const pathname = usePathname();

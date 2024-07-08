@@ -1,31 +1,17 @@
 "use client";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-} from "@radix-ui/react-navigation-menu";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import {
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "../ui/navigation-menu";
+import { Button } from "../ui/button";
 
 export const Navbar = () => {
   const tNavBar = useTranslations("navBar");
   return (
-    <NavigationMenu className="max-lg:hidden">
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={`${navigationMenuTriggerStyle()} text-xs`}
-            >
-              {tNavBar("myPosts")}
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <nav>
+      <Button variant="ghost" className="text-xs">
+        <Link href="/docs" legacyBehavior passHref>
+          {tNavBar("myPosts")}
+        </Link>
+      </Button>
+    </nav>
   );
 };
