@@ -5,14 +5,16 @@ const Header = dynamic(() => import("./Header").then((mod) => mod.Header));
 const SideBar = dynamic(() => import("./SideBar").then((mod) => mod.SideBar));
 const Footer = dynamic(() => import("./Footer").then((mod) => mod.Footer));
 const MobileNavBar = dynamic(() =>
-  import("@/components/navBar/mobileNavBar").then((mod) => mod.MobileNavBar),
+  import("@/components/layout/app/navBar/mobileNavBar").then(
+    (mod) => mod.MobileNavBar,
+  ),
 );
 
 export const AppLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="flex flex-col h-screen max-w-screen overflow-hidden">
+    <div className="flex flex-col h-screen max-w-screen lg:overflow-hidden">
       <Header />
-      <main className="flex-1 flex h-screen max-h-screen overflow-y-auto lg:flex-wrap">
+      <main className="flex max-lg:flex-col flex-1 h-screen max-h-screen overflow-y-auto lg:flex-wrap">
         <SideBar />
         {children}
         <Footer />

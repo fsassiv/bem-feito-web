@@ -1,4 +1,4 @@
-import { AppDropdownMenu } from "../appDropdownMenu";
+import { AppDropdownMenu } from "../../../appDropdownMenu";
 
 export const MobileNavBar = () => {
   return (

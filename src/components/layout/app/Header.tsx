@@ -1,5 +1,5 @@
 "use client";
-import { Navbar } from "@/components/navBar";
+import { Navbar } from "@/components/layout/app/navBar";
 import { appColors } from "@/lib/utils";
 import { BadgeCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
