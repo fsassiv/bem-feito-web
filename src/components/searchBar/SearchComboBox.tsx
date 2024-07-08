@@ -34,6 +34,7 @@ export const SearchComboBox: FC<SearchComboBoxTypes> = ({
       ) : (
         <>{tForm("searchBar.selectCategory")}</>
       )}
+      fasg
     </Button>
   );
 
