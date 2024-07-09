@@ -2,7 +2,7 @@
 import { AppPage } from "@/components/layout/app/Page";
 import { useSearchParams } from "next/navigation";
 
-export default function Home() {
+export default function Results() {
   const params = useSearchParams();
 
   const category = params.get("category");

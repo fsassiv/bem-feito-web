@@ -28,7 +28,7 @@ export default function NotFound() {
         <Button
           variant="outline"
           className="max-lg:w-full mb-4 flex-1"
-          onClick={() => replace("/app/home")}
+          onClick={() => replace("/app/results")}
         >
           {tNotFound("goHomeBtn")}
         </Button>

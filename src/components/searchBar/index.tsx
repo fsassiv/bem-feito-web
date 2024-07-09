@@ -51,7 +51,7 @@ export function SearchBar() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     const { category, searchValue } = data;
-    push(`/app/home?category=${category || "all"}&search=${searchValue}`);
+    push(`/app/results?category=${category || "all"}&search=${searchValue}`);
   }
 
   useEffect(() => {

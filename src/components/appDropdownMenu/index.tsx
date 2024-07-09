@@ -8,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { appColors } from "@/lib/utils";
+import clsx from "clsx";
 import { icons, Menu } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
@@ -64,7 +65,7 @@ export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
         callback: () => push("/auth/signin"),
       },
     ],
-    [data, push]
+    [data, push],
   );
 
   return (
@@ -72,9 +73,10 @@ export const AppDropdownMenu: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          className={`${
-            isMobile ? null : "max-lg:hidden"
-          } focus-visible:ring-0 focus-visible:ring-offset-0`}
+          className={clsx(
+            !isMobile && "max-lg:hidden",
+            "focus-visible:ring-0 focus-visible:ring-offset-0",
+          )}
         >
           <Menu color={`${isMobile ? "white" : appColors.primary}`} />
         </Button>
