@@ -14,8 +14,6 @@ import { useMemo } from "react";
 export const AppBreadcrumb = () => {
   const tRoutes = useTranslations("pages.routes");
 
-  console.log(tRoutes("results"));
-
   const pathname = usePathname();
 
   const paths: string[] = useMemo(
