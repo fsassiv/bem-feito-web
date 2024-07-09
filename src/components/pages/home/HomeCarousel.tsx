@@ -17,8 +17,6 @@ export const HomeCarousel = () => {
 
   const scrollTo = useCallback((index: number) => api?.scrollTo(index), [api]);
 
-  console.log("first fs");
-
   const onSelect = useCallback(() => {
     if (!api) return;
     setSelectedIndex(api.selectedScrollSnap());
