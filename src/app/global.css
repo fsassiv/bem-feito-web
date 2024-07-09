@@ -107,7 +107,7 @@ body,
 @keyframes showOnScroll {
   from {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
   to {
     opacity: 1;

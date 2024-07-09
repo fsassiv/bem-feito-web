@@ -29,7 +29,7 @@ export const HomeCarousel = () => {
   }, [api, onSelect]);
 
   return (
-    <div className="lg:container bg-primary">
+    <div className="lg:container pt-6 px-2 mb-2 w-full">
       <Carousel className="w-full" opts={{ loop: true }} setApi={setApi}>
         <CarouselContent>
           {mockItems.map((_, index) => (
