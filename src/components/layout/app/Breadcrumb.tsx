@@ -25,20 +25,23 @@ export const AppBreadcrumb = () => {
   return (
     <Breadcrumb className="w-full pl-2 pt-2 max-lg:hidden">
       <BreadcrumbList>
-        {paths.map((item, index) => (
-          <BreadcrumbItem key={item}>
-            {index + 1 === paths.length ? (
-              <BreadcrumbPage>{tRoutes(item)}</BreadcrumbPage>
-            ) : (
-              <>
-                <BreadcrumbLink href={`/app/${item}`}>
-                  {item ? tRoutes(item) : "Home"}
-                </BreadcrumbLink>
-                <Slash size={10} />
-              </>
-            )}
-          </BreadcrumbItem>
-        ))}
+        {paths.map((item, index) => {
+          const isCurrentPage = index + 1 === paths.length;
+          return (
+            <BreadcrumbItem key={item}>
+              {isCurrentPage ? (
+                <BreadcrumbPage>{tRoutes(item)}</BreadcrumbPage>
+              ) : (
+                <>
+                  <BreadcrumbLink href={`/app/${item}`}>
+                    {item ? tRoutes(item) : "Home"}
+                  </BreadcrumbLink>
+                  <Slash size={10} />
+                </>
+              )}
+            </BreadcrumbItem>
+          );
+        })}
       </BreadcrumbList>
     </Breadcrumb>
   );
