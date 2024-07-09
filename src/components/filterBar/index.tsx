@@ -22,7 +22,7 @@ export const FilterBar = () => {
   const { data: searchBarfilters } = FetchSearchFilters();
 
   return (
-    <Card className="max-h-full overflow-auto sticky top-2 bg-primary">
+    <Card className="max-h-full bg-primary">
       <CardHeader>
         <CardTitle className="text-white">{tFilter("title")}</CardTitle>
       </CardHeader>

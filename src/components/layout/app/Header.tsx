@@ -14,7 +14,7 @@ export const Header = () => {
 
   return (
     <header className="w-full">
-      <div className=" flex justify-between p-2 items-start border-b">
+      <div className=" flex justify-between p-2 items-start lg:border-b">
         <Link href="/app" className="max-lg:hidden w-[20%]">
           <Button variant="ghost" className="lg:mr-1">
             <BadgeCheck color={appColors.primary} />

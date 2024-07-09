@@ -8,7 +8,7 @@ export const AppPage = ({ children }: { children: ReactNode }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.05 }}
-      className="flex flex-col items-center justify-between p-6 pt-2 flex-1 container min-h-screen h-screen"
+      className="flex flex-col items-center justify-between flex-1"
     >
       {children}
     </motion.div>
