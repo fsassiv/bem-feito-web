@@ -1,9 +1,9 @@
 "use client";
+import NotFoundIcon from "#/svg/not-found.svg";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import NotFoundIcon from "../../../../public/svg/not-found.svg";
 
 export default function NotFound() {
   const tNotFound = useTranslations("errors.notFoundPage");

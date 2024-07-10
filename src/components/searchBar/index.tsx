@@ -6,13 +6,10 @@ import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { useAppToast } from "@/hooks/useAppToast";
 import { makeServer } from "@/mockServer";
 import { CategoryTypes } from "@/types/miscellaneous";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { toast } from "sonner";
 import { FetchCategories } from "../SWRConfigProvider";
 import { Input } from "../ui/input";
 import { SearchComboBox } from "./SearchComboBox";
@@ -23,8 +20,6 @@ export function SearchBar() {
   const tForms = useTranslations("forms");
 
   const { push } = useRouter();
-
-  const { toastWarning } = useAppToast();
 
   const { data: categories } = FetchCategories();
 
@@ -43,7 +38,7 @@ export function SearchBar() {
     },
   });
 
-  const { isValid, errors } = useFormState({ control: form.control });
+  const { isValid } = useFormState({ control: form.control });
 
   const updateSelectedCategory = (data: CategoryTypes | null) => {
     form.setValue("category", data?.value);
@@ -53,14 +48,6 @@ export function SearchBar() {
     const { category, searchValue } = data;
     push(`/app/results?category=${category || "all"}&search=${searchValue}`);
   }
-
-  useEffect(() => {
-    if (errors["searchValue"]?.message) {
-      toastWarning({ description: errors["searchValue"]?.message });
-      return;
-    }
-    toast.dismiss();
-  }, [toastWarning, errors]);
 
   return (
     <Form {...form}>

@@ -1,5 +1,7 @@
 "use client";
 import { AppPage } from "@/components/layout/app/Page";
+import { Item } from "@/components/pages/results/Item";
+import { ResultsSideBar } from "@/components/pages/results/ResultsSideBar";
 import { useSearchParams } from "next/navigation";
 
 export default function Results() {
@@ -9,8 +11,31 @@ export default function Results() {
   const search = params.get("search");
 
   return (
-    <AppPage>
-      AppHome {category} and {search}
-    </AppPage>
+    <>
+      <AppPage>
+        {/* AppHome {category} and {search} */}
+        <div className="flex flex-1 w-full py-2 lg:px-2">
+          <ul className="px-2 flex flex-col lg:flex-row lg:flex-wrap gap-1 w-full mb-10 justify-between rounded bg-gray-100 p-2">
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+          </ul>
+        </div>
+      </AppPage>
+      <ResultsSideBar />
+    </>
   );
 }

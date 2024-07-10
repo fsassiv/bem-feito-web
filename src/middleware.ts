@@ -13,12 +13,13 @@ import { defaultLocale, locales } from "./i18n";
 //   "/auth/recover-password",
 // ];
 
-const protectedRoutes = ["/app/profile"];
+const protectedRoutes = ["/profile", "/posts"];
 
 const intlMiddleware = createMiddleware({
   locales,
   defaultLocale,
-  localePrefix: "as-needed",
+  localePrefix: "never",
+  // localeDetection: true,
 });
 
 const authMiddleware = withAuth(
@@ -56,7 +57,7 @@ export default function middleware(req: NextRequest) {
   // }
 
   const isProtectedRoute = protectedRoutes.some((prefix) =>
-    req.nextUrl.pathname.startsWith(prefix),
+    req.nextUrl.pathname.includes(prefix),
   );
 
   if (!isProtectedRoute) {

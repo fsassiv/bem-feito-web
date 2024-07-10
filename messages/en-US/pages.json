@@ -1,0 +1,10 @@
+{
+  "pages": {
+    "appHomePage": {},
+    "resultsPage": {},
+    "routes": {
+      "app": "Início",
+      "results": "Resultados"
+    }
+  }
+}

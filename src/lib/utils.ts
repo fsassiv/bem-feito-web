@@ -1,4 +1,5 @@
 import { type ClassValue, clsx } from "clsx";
+import { formatValue } from "react-currency-input-field";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -13,15 +14,13 @@ export const disableOutlineCss =
 export const capitalize = (text: string) =>
   text.charAt(0).toUpperCase() + text.slice(1);
 
-// export const appColors = [
-//   "#00a8e0",
-//   "#004e7a",
-//   "#001f3d",
-//   "#3b600b",
-//   "#7ebc0b",
-//   "#5f8a0a",
-//   "#007a7a",
-//   "#00a8a8",
-//   "#00dbdb",
-//   "#0075db",
-// ];
+export const formatCurrency = (value: number) => {
+  const converted = value.toFixed(2).toString();
+  return formatValue({
+    value: converted,
+    groupSeparator: ".",
+    decimalSeparator: ",",
+    prefix: "R$ ",
+    intlConfig: { locale: "pt-BR", currency: "BRL" },
+  });
+};

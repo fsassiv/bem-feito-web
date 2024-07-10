@@ -48,7 +48,7 @@ export const FilterBar = () => {
           ))}
         </Accordion>
       </CardContent>
-      <CardFooter className="flex justify-between">
+      <CardFooter className="flex justify-around flex-wrap">
         <Button variant="ghost" size="sm" className="text-xs text-white">
           {tFilter("clearFilterBtn")}
         </Button>

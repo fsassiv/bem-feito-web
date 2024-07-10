@@ -1,0 +1,13 @@
+/* css file destined to general styling */
+html,
+body,
+* {
+  font-family: var(--font-inter);
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.clean-button {
+  background-color: transparent;
+  border: none;
+}

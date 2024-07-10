@@ -1,6 +1,6 @@
+import AuthLayoutSvg from "#/svg/user.svg";
 import Image from "next/image";
 import { ReactNode } from "react";
-import AuthLayoutSvg from "../../../../public/svg/user.svg";
 
 export const AuthLayout = ({ children }: { children: ReactNode }) => {
   return (

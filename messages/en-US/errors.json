@@ -1,0 +1,9 @@
+{
+  "errors": {
+    "notFoundPage": {
+      "title": "Página não encontrada",
+      "backBtn": "Voltar",
+      "goHomeBtn": "Início"
+    }
+  }
+}

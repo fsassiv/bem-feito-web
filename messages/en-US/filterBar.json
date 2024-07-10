@@ -1,0 +1,11 @@
+{
+  "filterBar": {
+    "title": "Filtros",
+    "country": "Pais",
+    "state": "Estado",
+    "city": "Cidade",
+    "price": "Preço",
+    "clearFilterBtn": "Limpar filtros",
+    "applyFilterBtn": "Aplicar filtros"
+  }
+}

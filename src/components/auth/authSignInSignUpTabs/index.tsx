@@ -1,4 +1,6 @@
 "use client";
+import GoogleLogo from "#/images/google.png";
+import { LoadingComponent } from "@/components/loadingScreen/LoadindComponent";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import dynamic from "next/dynamic";
@@ -6,15 +8,17 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { useTranslations } from "use-intl";
-import GoogleLogo from "../../../../public/images/google.png";
 
 const SignInForm = dynamic(
   () => import("@/components/form/SignInForm").then((mod) => mod.SignInForm),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: LoadingComponent,
+  },
 );
 const SignUpForm = dynamic(
   () => import("@/components/form/SignUpForm").then((mod) => mod.SignUpForm),
-  { ssr: false }
+  { ssr: false, loading: LoadingComponent },
 );
 
 export const AuthSignInSignUpTabs = ({}) => {
@@ -37,10 +41,10 @@ export const AuthSignInSignUpTabs = ({}) => {
           {tAuth("createAccount")}
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="signin">
+      <TabsContent value="signin" className="text-center">
         <SignInForm />
       </TabsContent>
-      <TabsContent value="signup">
+      <TabsContent value="signup" className="text-center">
         <SignUpForm />
       </TabsContent>
       <div className="flex flex-col items-center mt-6 lg:mt-6 rounded-md">
