@@ -1,6 +1,6 @@
 "use client";
 import GoogleLogo from "#/images/google.png";
-import { LoadingComponent } from "@/components/loadingScreen/LoadindComponent";
+import { LoadingComponent } from "@/components/loadingScreen/LoadingComponent";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import dynamic from "next/dynamic";

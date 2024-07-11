@@ -1,4 +1,4 @@
-import { LoadingComponent } from "@/components/loadingScreen/LoadindComponent";
+import { LoadingComponent } from "@/components/loadingScreen/LoadingComponent";
 import dynamic from "next/dynamic";
 
 const AuthSignInSignUpTabs = dynamic(
