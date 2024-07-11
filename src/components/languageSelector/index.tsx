@@ -32,7 +32,9 @@ export function LanguageSelector() {
   };
   return (
     <Select onValueChange={handleSelectChange} defaultValue={locale as string}>
-      <SelectTrigger className={clsx(disableOutlineCss, "border-0")}>
+      <SelectTrigger
+        className={clsx(disableOutlineCss, "border-0 last:*:hidden")}
+      >
         <Globe size={16} />
       </SelectTrigger>
       <SelectContent className="min-w-[5rem]">
