@@ -18,6 +18,10 @@
         "note"
       ]
     ],
-    "subject-case": [2, "never", ["upper-case", "pascal-case", "start-case"]]
+    "subject-case": [
+      2,
+      "never",
+      ["sentence-case", "start-case", "pascal-case", "upper-case"]
+    ]
   }
 }
