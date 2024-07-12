@@ -1,5 +1,5 @@
 "use client";
-import brasilData from "@/lib/brasil.json";
+import brasilData from "@/data/brasil.json";
 import { getUserLocation } from "@/lib/utils";
 import { CurrentLocationTypes, StatesTypes } from "@/types/miscellaneous";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -11,15 +11,15 @@ type useBrasilDataTypes = {
 };
 
 export const useBrasilData = (
-  selectedState: string | null = "BA"
+  selectedState: string | null = "BA",
 ): useBrasilDataTypes => {
   const states: StatesTypes[] = useMemo(
     () => brasilData.estados.map((item) => item),
-    []
+    [],
   );
   const citiesByState: string[] = useMemo(
     () => states.filter((item) => item.sigla === selectedState)[0]?.cidades,
-    [states, selectedState]
+    [states, selectedState],
   );
 
   const [geolocation, setGeolocation] = useState<Geolocation>();
@@ -33,7 +33,7 @@ export const useBrasilData = (
 
       return state?.sigla || "";
     },
-    [states]
+    [states],
   );
 
   const onSuccess: PositionCallback = useCallback(
@@ -43,7 +43,7 @@ export const useBrasilData = (
       response = { ...response, sigla: addStateAcronym(response?.city || "") };
       setCurrentLocation(response);
     },
-    [lang, addStateAcronym]
+    [lang, addStateAcronym],
   );
 
   useEffect(() => {

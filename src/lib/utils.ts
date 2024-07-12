@@ -19,9 +19,9 @@ export const formatCurrency = (value: number) => {
   const converted = value.toFixed(2).toString();
   return formatValue({
     value: converted,
-    groupSeparator: ".",
-    decimalSeparator: ",",
-    prefix: "R$ ",
+    // groupSeparator: ".",
+    // decimalSeparator: ",",
+    // prefix: "R$ ",
     intlConfig: { locale: "pt-BR", currency: "BRL" },
   });
 };
@@ -29,7 +29,7 @@ export const formatCurrency = (value: number) => {
 export const getUserLocation = async (
   latitude: number,
   longitude: number,
-  language: string = "pt-br"
+  language: string = "pt-br",
 ): Promise<CurrentLocationTypes> => {
   const baseUrl = `http://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=${language.toLowerCase()}`;
 

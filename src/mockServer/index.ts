@@ -1,9 +1,7 @@
-import { categories, searchBarfilters } from "@/lib/dummy-data";
+import { categories, searchBarfilters } from "@/data/dummy-data";
 import { createServer } from "miragejs";
 
 export const makeServer = ({ environment = "test" } = {}) => {
-  // eslint-disable-next-line no-console
-  console.log("--- MIRAGEJS SERVER RUNNING ---");
   let server = createServer({
     environment,
     useDefaultPassthroughs: true,
