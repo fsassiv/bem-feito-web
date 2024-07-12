@@ -16,7 +16,7 @@ import {
 } from "next/navigation";
 import { useMemo } from "react";
 
-export function LanguageSelector() {
+export const LanguageSelector = () => {
   const pathname = usePathname();
   const searchparams = useSearchParams();
   const { replace } = useRouter();
@@ -50,4 +50,4 @@ export function LanguageSelector() {
       </SelectContent>
     </Select>
   );
-}
+};

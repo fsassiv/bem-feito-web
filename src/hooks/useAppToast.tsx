@@ -10,7 +10,7 @@ type ToastPropTypes = {
   };
 };
 
-const globalSettings = {
+const globalStylingSettings = {
   title: "font-bold text-white",
   description: "text-white",
 };
@@ -27,18 +27,22 @@ export const useAppToast = () => {
       description,
       action,
       classNames: {
-        ...globalSettings,
+        ...globalStylingSettings,
         toast: "bg-orange-400",
       },
     });
   };
 
-  const toastInfo = ({ title = "", description, action }: ToastPropTypes) => {
-    toast.info((title = tUtils("toast.infoTitle")), {
+  const toastInfo = ({
+    title = tUtils("toast.infoTitle"),
+    description,
+    action,
+  }: ToastPropTypes) => {
+    toast.info(title, {
       description,
       action,
       classNames: {
-        ...globalSettings,
+        ...globalStylingSettings,
         toast: "bg-sky-400",
         title: "font-bold text-gray-500",
         description: "text-gray-500",
@@ -46,27 +50,31 @@ export const useAppToast = () => {
     });
   };
 
-  const toastError = ({ title = "", description, action }: ToastPropTypes) => {
-    toast.error((title = tUtils("toast.errorTitle")), {
+  const toastError = ({
+    title = tUtils("toast.errorTitle"),
+    description,
+    action,
+  }: ToastPropTypes) => {
+    toast.error(title, {
       description,
       action,
       classNames: {
-        ...globalSettings,
+        ...globalStylingSettings,
         toast: "bg-rose-400",
       },
     });
   };
 
   const toastSuccess = ({
-    title = "",
+    title = tUtils("toast.successTitle"),
     description,
     action,
   }: ToastPropTypes) => {
-    toast.error((title = tUtils("toast.successTitle")), {
+    toast.error(title, {
       description,
       action,
       classNames: {
-        ...globalSettings,
+        ...globalStylingSettings,
         toast: "bg-teal-400",
         title: "font-bold text-gray-500",
         description: "text-gray-500",

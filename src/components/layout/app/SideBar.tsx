@@ -7,6 +7,7 @@ export const SideBar = () => {
   const pathname = usePathname();
 
   if (pathname === "/app") return null;
+
   return (
     <motion.aside
       initial={{ opacity: 0 }}

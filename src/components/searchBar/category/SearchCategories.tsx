@@ -39,8 +39,7 @@ export const SearchCategories: FC<SearchCategoriesTypes> = ({
               value={category.value}
               onSelect={(value) => {
                 setSelectedCategory(
-                  categories.find((priority) => priority.value === value) ||
-                    null,
+                  categories.find((cat) => cat.value === value) || null
                 );
                 setOpen(false);
               }}

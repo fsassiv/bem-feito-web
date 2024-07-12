@@ -1,22 +1,20 @@
 "use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, useFormState } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { makeServer } from "@/mockServer";
 import { CategoryTypes } from "@/types/miscellaneous";
+import { SelectedStateTypes } from "@/types/searchBarTypes";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { FetchCategories } from "../SWRConfigProvider";
 import { Input } from "../ui/input";
-import { SearchComboBox } from "./SearchComboBox";
+import { SearchComboBox } from "./category/SearchComboBox";
+import { SearchState } from "./state/SearchState";
 
-makeServer({ environment: process.env.NODE_ENV });
-
-export function SearchBar() {
+export const SearchBar = () => {
   const tForms = useTranslations("forms");
 
   const { push } = useRouter();
@@ -24,6 +22,7 @@ export function SearchBar() {
   const { data: categories } = FetchCategories();
 
   const FormSchema = z.object({
+    state: z.string().or(z.null()).optional(),
     category: z.string().or(z.null()).optional(),
     searchValue: z
       .string({ message: tForms("general.required") })
@@ -35,32 +34,42 @@ export function SearchBar() {
     defaultValues: {
       searchValue: "",
       category: null,
+      state: null,
     },
   });
 
-  const { isValid } = useFormState({ control: form.control });
+  const { formState, setValue, handleSubmit, control } = form;
+
+  const { isValid } = formState;
 
   const updateSelectedCategory = (data: CategoryTypes | null) => {
-    form.setValue("category", data?.value);
+    setValue("category", data?.value);
   };
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    const { category, searchValue } = data;
-    push(`/app/results?category=${category || "all"}&search=${searchValue}`);
-  }
+  const onSubmit = (data: z.infer<typeof FormSchema>) => {
+    const { category, searchValue, state } = data;
+    push(
+      `/app/results?state=${state}&category=${category || "all"}&search=${searchValue}`
+    );
+  };
+
+  const getSelectedState = (data: SelectedStateTypes) => {
+    setValue("state", data?.sigla);
+  };
 
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit)}
         className="flex w-full flex-col lg:flex-row items-center lg:items-start relative lg:mr-4"
       >
         <SearchComboBox
           updateSelectedCategory={updateSelectedCategory}
           categories={categories}
         />
+        <SearchState getSelectedState={getSelectedState} />
         <FormField
-          control={form.control}
+          control={control}
           name="searchValue"
           render={({ field }) => (
             <FormItem className="w-full !mt-0 lg:max-w-[400px] xl:max-w-[500px] max-lg:mb-1">
@@ -86,4 +95,4 @@ export function SearchBar() {
       </form>
     </Form>
   );
-}
+};

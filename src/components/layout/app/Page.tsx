@@ -1,6 +1,9 @@
 "use client";
+import { makeServer } from "@/mockServer";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+
+makeServer({ environment: process.env.NODE_ENV });
 
 export const AppPage = ({ children }: { children: ReactNode }) => {
   return (

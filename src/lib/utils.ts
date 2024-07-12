@@ -1,3 +1,4 @@
+import { CurrentLocationTypes } from "@/types/miscellaneous";
 import { type ClassValue, clsx } from "clsx";
 import { formatValue } from "react-currency-input-field";
 import { twMerge } from "tailwind-merge";
@@ -23,4 +24,14 @@ export const formatCurrency = (value: number) => {
     prefix: "R$ ",
     intlConfig: { locale: "pt-BR", currency: "BRL" },
   });
+};
+
+export const getUserLocation = async (
+  latitude: number,
+  longitude: number,
+  language: string = "pt-br"
+): Promise<CurrentLocationTypes> => {
+  const baseUrl = `http://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=${language.toLowerCase()}`;
+
+  return fetch(baseUrl).then((res) => res.json());
 };

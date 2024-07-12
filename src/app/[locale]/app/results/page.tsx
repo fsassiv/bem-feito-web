@@ -14,8 +14,8 @@ export default function Results() {
     <>
       <AppPage>
         {/* AppHome {category} and {search} */}
-        <div className="flex flex-1 w-full py-2 lg:px-2">
-          <ul className="px-2 flex flex-col lg:flex-row lg:flex-wrap gap-1 w-full mb-10 justify-between rounded bg-gray-100 p-2">
+        <div className="flex flex-1 justify-center w-full py-2 lg:px-2">
+          <ul className="xl:max-w-[50vw] px-2 flex flex-col lg:flex-row lg:flex-wrap gap-1 w-full mb-10 justify-between rounded p-2">
             <Item />
             <Item />
             <Item />

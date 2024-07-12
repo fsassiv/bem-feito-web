@@ -7,7 +7,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "../ui/drawer";
+} from "../../ui/drawer";
 
 export const SearchComboBoxMobile: FC<SearchComboWrapperTypes> = ({
   open,

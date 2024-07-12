@@ -7,7 +7,7 @@ import { disableOutlineCss } from "@/lib/utils";
 import { CategoryTypes } from "@/types/miscellaneous";
 import { SearchComboBoxTypes } from "@/types/searchBarTypes";
 import { useTranslations } from "next-intl";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { SearchCategories } from "./SearchCategories";
 import { SearchComboBoxDesktop } from "./SearchComboBoxDesktop";
 import { SearchComboBoxMobile } from "./SearchComboBoxMobile";

@@ -49,9 +49,9 @@ export const SignInForm = () => {
 
   const { isValid } = useFormState({ control: form.control });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  const onSubmit = (data: z.infer<typeof FormSchema>) => {
     console.log(data);
-  }
+  };
 
   return (
     <FormProvider {...form}>
