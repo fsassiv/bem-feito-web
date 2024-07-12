@@ -1,11 +1,11 @@
 "use client";
-import { useLoadingContext } from "@/context/loading";
+import { useUtilsCxt } from "@/context/utils";
 // import { LoaderCircle } from "lucide-react";
 
 export const LoadingScreen = () => {
-  const { isLoading } = useLoadingContext();
+  const { loading } = useUtilsCxt();
 
-  if (isLoading)
+  if (loading.isLoading)
     return (
       <div className="fixed inset-0 flex items-center justify-center">
         <div

@@ -1,7 +1,7 @@
 import { SWRConfigProvider } from "@/components/SWRConfigProvider";
 import { Toaster } from "@/components/ui/sonner";
-import { LoadingWrapper } from "@/context/loading";
 import { SessionWrapper } from "@/context/session";
+import { UtilsCxtWrapper } from "@/context/utils";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -25,7 +25,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <LoadingWrapper>
+    <UtilsCxtWrapper>
       <SessionWrapper>
         <html lang={locale}>
           <body
@@ -43,6 +43,6 @@ export default async function RootLayout({
           </body>
         </html>
       </SessionWrapper>
-    </LoadingWrapper>
+    </UtilsCxtWrapper>
   );
 }
