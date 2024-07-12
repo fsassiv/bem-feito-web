@@ -66,7 +66,9 @@ export const SignInForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tAuth("email")}</FormLabel>
+                  <FormLabel className="text-left inline-block w-full">
+                    {tAuth("email")}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="email"
@@ -84,7 +86,9 @@ export const SignInForm = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tAuth("password")}</FormLabel>
+                  <FormLabel className="text-left inline-block w-full">
+                    {tAuth("password")}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="password"

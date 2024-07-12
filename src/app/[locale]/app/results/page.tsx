@@ -10,6 +10,8 @@ export default function Results() {
   const category = params.get("category");
   const search = params.get("search");
 
+  // throw new Error()
+
   return (
     <>
       <AppPage>

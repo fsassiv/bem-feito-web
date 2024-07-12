@@ -1,11 +1,12 @@
 "use client";
 import { useUtilsCxt } from "@/context/utils";
+import { FC } from "react";
 // import { LoaderCircle } from "lucide-react";
 
-export const LoadingScreen = () => {
+export const LoadingScreen: FC<{ show?: boolean }> = ({ show }) => {
   const { loading } = useUtilsCxt();
 
-  if (loading.isLoading)
+  if (show || loading.isLoading)
     return (
       <div className="fixed inset-0 flex items-center justify-center">
         <div

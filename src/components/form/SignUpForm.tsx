@@ -90,7 +90,9 @@ export const SignUpForm = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tAuth("name")}</FormLabel>
+                  <FormLabel className="text-left inline-block w-full">
+                    {tAuth("name")}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       placeholder={tAuth("namePlaceholder")}
@@ -107,7 +109,9 @@ export const SignUpForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tAuth("email")}</FormLabel>
+                  <FormLabel className="text-left inline-block w-full">
+                    {tAuth("email")}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="email"
@@ -125,7 +129,9 @@ export const SignUpForm = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tAuth("password")}</FormLabel>
+                  <FormLabel className="text-left inline-block w-full">
+                    {tAuth("password")}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="password"
@@ -143,7 +149,9 @@ export const SignUpForm = () => {
               name="confirmPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tAuth("confirmPassword")}</FormLabel>
+                  <FormLabel className="text-left inline-block w-full">
+                    {tAuth("confirmPassword")}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="password"
