@@ -1,6 +1,13 @@
 "use client";
+import { formatCurrency } from "@/lib/utils";
 import { useParams } from "next/navigation";
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 
 type LoadingTypes = {
   isLoading: boolean;
@@ -8,8 +15,13 @@ type LoadingTypes = {
   setLoadingOff: () => void;
 };
 
+type CurrencyTypes = {
+  getLocaleCurrency: (value: number) => { raw: string; prefixed: string };
+};
+
 type UtilsCxtTypes = {
   loading: LoadingTypes;
+  currency: CurrencyTypes;
 };
 
 const UtilsCxt = createContext<UtilsCxtTypes>({
@@ -17,6 +29,9 @@ const UtilsCxt = createContext<UtilsCxtTypes>({
     isLoading: false,
     setLoadingOn: () => {},
     setLoadingOff: () => {},
+  },
+  currency: {
+    getLocaleCurrency: (value) => ({ raw: "", prefixed: "" }),
   },
 });
 
@@ -42,7 +57,25 @@ export const UtilsCxtWrapper = ({ children }: { children: ReactNode }) => {
     setLoadingOff,
   };
 
-  console.log(locale);
+  // currency
+  const getLocaleCurrency = useCallback(
+    (value: number) => {
+      if (typeof locale === "string") {
+        const temp = formatCurrency(value, locale);
+        return temp;
+      }
+      return { raw: "", prefixed: "" };
+    },
+    [locale],
+  );
 
-  return <UtilsCxt.Provider value={{ loading }}>{children}</UtilsCxt.Provider>;
+  const currency = {
+    getLocaleCurrency,
+  };
+
+  return (
+    <UtilsCxt.Provider value={{ loading, currency }}>
+      {children}
+    </UtilsCxt.Provider>
+  );
 };

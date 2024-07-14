@@ -27,7 +27,9 @@ export default function Error({
         height={100}
         className="mb-4 w-full md:w-1/2 lg:w-1/5 lg:mb-10"
       />
-      <p className="text-uppercase text-gray-400">{error.message}</p>
+      <p className="text-uppercase text-gray-400 mb-5 lg:max-w-1/2">
+        {error.message}
+      </p>
       <Link href="/">
         <Button>Return Home</Button>
       </Link>

@@ -1,3 +1,4 @@
+import worldCurrency from "@/data/world-currency.json";
 import { CurrentLocationTypes } from "@/types/miscellaneous";
 import { type ClassValue, clsx } from "clsx";
 import { formatValue } from "react-currency-input-field";
@@ -15,15 +16,30 @@ export const disableOutlineCss =
 export const capitalize = (text: string) =>
   text.charAt(0).toUpperCase() + text.slice(1);
 
-export const formatCurrency = (value: number) => {
-  const converted = value.toFixed(2).toString();
-  return formatValue({
-    value: converted,
-    // groupSeparator: ".",
-    // decimalSeparator: ",",
-    // prefix: "R$ ",
-    intlConfig: { locale: "pt-BR", currency: "BRL" },
-  });
+export const getCurrencyCode = (localeValue: string) => {
+  const list = worldCurrency.map((item) => ({
+    ...item,
+    locale: item.locale.replace("_", "-"),
+  }));
+  const data = list.find((item) => item.locale === localeValue);
+
+  return data?.code || "BRL";
+};
+
+export const formatCurrency = (value: number, locale = "pt-BR") => {
+  const converted = value.toString();
+  const currency = getCurrencyCode(locale);
+
+  return {
+    raw: formatValue({
+      value: converted,
+      intlConfig: { locale },
+    }),
+    prefixed: formatValue({
+      value: converted,
+      intlConfig: { locale, currency },
+    }),
+  };
 };
 
 export const getUserLocation = async (
