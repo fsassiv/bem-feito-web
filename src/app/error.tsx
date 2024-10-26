@@ -30,7 +30,7 @@ export default function Error({
       <p className="text-uppercase text-gray-400 mb-5 lg:max-w-1/2">
         {error.message}
       </p>
-      <Link href="/">
+      <Link href="/app">
         <Button>Return Home</Button>
       </Link>
     </div>

@@ -10,6 +10,7 @@ export const SWRConfigProvider = ({ children }: { children: ReactNode }) => {
   return (
     <SWRConfig
       value={{
+        provider: () => new Map(),
         // 30min refresh interval
         refreshInterval: 5000 * 2 * 6 * 30,
         fetcher,
