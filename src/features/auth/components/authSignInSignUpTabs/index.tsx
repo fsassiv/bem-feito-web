@@ -10,15 +10,21 @@ import { useMemo } from "react";
 import { useTranslations } from "use-intl";
 
 const SignInForm = dynamic(
-  () => import("@/components/form/SignInForm").then((mod) => mod.SignInForm),
+  () =>
+    import("@/features/auth/components/form/SignInForm").then(
+      (mod) => mod.SignInForm
+    ),
   {
     ssr: false,
     loading: LoadingComponent,
-  },
+  }
 );
 const SignUpForm = dynamic(
-  () => import("@/components/form/SignUpForm").then((mod) => mod.SignUpForm),
-  { ssr: false, loading: LoadingComponent },
+  () =>
+    import("@/features/auth/components/form/SignUpForm").then(
+      (mod) => mod.SignUpForm
+    ),
+  { ssr: false, loading: LoadingComponent }
 );
 
 export const AuthSignInSignUpTabs = ({}) => {

@@ -1,7 +1,7 @@
 import { AuthFormsFooterTypes } from "@/types/AuthFormsFooterTypes";
 import { FC } from "react";
-import { Button } from "../ui/button";
-import { CardFooter } from "../ui/card";
+import { Button } from "../../../../components/ui/button";
+import { CardFooter } from "../../../../components/ui/card";
 
 export const AuthFormsFooter: FC<AuthFormsFooterTypes> = ({
   onGoBack,

@@ -1,5 +1,5 @@
 import { AppPage } from "@/components/layout/app/Page";
-import { HomeCarousel } from "@/components/pages/home/HomeCarousel";
+import { HomeCarousel } from "@/features/home/components/HomeCarousel";
 
 export default async function AppHome() {
   return (

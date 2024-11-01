@@ -4,15 +4,20 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { FormProvider, useForm, useFormState } from "react-hook-form";
 import { z } from "zod";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../../../../components/ui/card";
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form";
-import { Input } from "../ui/input";
+} from "../../../../components/ui/form";
+import { Input } from "../../../../components/ui/input";
 import { AuthFormsFooter } from "./AuthFormsFooter";
 
 export const SignUpForm = () => {

@@ -1,7 +1,7 @@
 "use client";
 import { AppPage } from "@/components/layout/app/Page";
-import { Item } from "@/components/pages/results/Item";
-import { ResultsSideBar } from "@/components/pages/results/ResultsSideBar";
+import { Item } from "@/features/results/Item";
+import { ResultsSideBar } from "@/features/results/ResultsSideBar";
 import { useSearchParams } from "next/navigation";
 
 export default function Results() {
