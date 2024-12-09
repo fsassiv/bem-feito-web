@@ -8,21 +8,7 @@ import {
   useContext,
   useState,
 } from "react";
-
-type LoadingTypes = {
-  isLoading: boolean;
-  setLoadingOn: () => void;
-  setLoadingOff: () => void;
-};
-
-type CurrencyTypes = {
-  getLocaleCurrency: (value: number) => { raw: string; prefixed: string };
-};
-
-type UtilsCxtTypes = {
-  loading: LoadingTypes;
-  currency: CurrencyTypes;
-};
+import { UtilsCxtTypes } from "./types";
 
 const UtilsCxt = createContext<UtilsCxtTypes>({
   loading: {
